@@ -1,0 +1,31 @@
+<div class="card-container">
+    <mat-card class="card">
+
+        <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>AirReps Verified Seller Check</mat-card-title>
+            <mat-card-subtitle [ngStyle]="{'color': getColour()}">{{ verificationStatus }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <app-decode-cert [certificate]='apiResponse'></app-decode-cert>
+
+        <mat-card-content>
+            <p>
+                This app will tell you whether a seller has been verified by the AirReps community.
+            </p>
+            <p>
+                The only way a seller can be verified is by supplying quality goods, and obtaining a signed SSL/TLS certificate from AirReps.
+                If a certificate is present for the request seller, the details will be displayed above.
+            </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <!-- <button (click)="" mat-raised-button color=primary>
+                RETURN TO ORIGIN
+            </button>  -->
+        </mat-card-actions>
+
+    </mat-card>
+
+</div>
+
