@@ -1,19 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, Input, OnInit } from '@angular/core';
+import * as forge from 'node-forge';
 
 @Component({
   selector: 'app-decode-cert',
   templateUrl: './decode-cert.component.html',
   styleUrls: ['./decode-cert.component.scss']
 })
-export class DecodeCertComponent implements OnInit {
+export class DecodeCertComponent implements OnInit, AfterViewChecked {
 
-  @Input() certificate: string;
+  @Input() certificate;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+  
+  ngAfterViewChecked(): void {
+    var cert = forge.pki.certificateFromPem(this.certificate.toString('binary'));
+    
+    // todo - extrapolate cert and create web template to view
+    console.log(cert);
   }
-
-  // todo - decode cert and create web template to view
 
 }
