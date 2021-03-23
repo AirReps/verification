@@ -6,11 +6,23 @@
     .card {
         min-width: 450px;
         min-height: 400px;
+        width: 100%
     }
 
     .header-image {
         background-image: url("../../assets/airreps-headset.png");
         background-size: cover;
+    }
+
+    .mat-card-actions,
+    .mat-card-content,
+    .status {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+        padding: 1%;
+        font-size: 16px;
     }
 
 }

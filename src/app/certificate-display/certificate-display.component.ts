@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
@@ -11,8 +12,8 @@ import { ApiService } from 'src/services/api.service';
 })
 export class CertificateDisplayComponent implements OnInit {
 
-  private static VERIFIED: string = 'SELLER VERIFIED';
-  private static NOT_VERIFIED: string = 'SELLER NOT VERIFIED';
+  private static VERIFIED: string = 'SELLER VERIFIED: ';
+  private static NOT_VERIFIED: string = 'SELLER NOT VERIFIED: ';
   private result: boolean = true;
   public verificationStatus: string = '';
 
@@ -34,19 +35,16 @@ export class CertificateDisplayComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // @todo - remove this setter - only used for dev
-    this.setStatus(this.result);
-
     this.route.queryParams.subscribe((params) => {
       this.queryApi(params);
     })
   }
 
-  setStatus(result: boolean): void {
+  setStatus(result: boolean, seller: string): void {
     if (result) {
-      this.verificationStatus = CertificateDisplayComponent.VERIFIED;
+      this.verificationStatus = CertificateDisplayComponent.VERIFIED + seller;
     } else {
-      this.verificationStatus = CertificateDisplayComponent.NOT_VERIFIED;
+      this.verificationStatus = CertificateDisplayComponent.NOT_VERIFIED + seller;
     }
   }
 
@@ -55,13 +53,17 @@ export class CertificateDisplayComponent implements OnInit {
   }
 
   queryApi(queryParameters: Object) {
-
     // this.apiService.getCertificate(queryParameters).subscribe((result) => {
     //   this.apiResponse = result;
+      this.setStatus(this.result, Object.values(queryParameters)[0].toUpperCase());
     // });
     
     // @todo - remove this assignment - only used for dev until API exists
     this.apiResponse = this.apiService.certificate;
+  }
+
+  returnToReferrer() {
+    window.location.replace(document.referrer);
   }
 
 }

@@ -5,12 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CertificateDisplayComponent } from './certificate-display/certificate-display.component';
+import { DecodeCertComponent } from './decode-certificate/decode-cert.component';
 
 // Material imports
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { CertificateDisplayComponent } from './certificate-display/certificate-display.component';
-import { DecodeCertComponent } from './decode-certificate/decode-cert.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DecodeCertComponent } from './decode-certificate/decode-cert.component'
     HttpClientModule,
     MatCardModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

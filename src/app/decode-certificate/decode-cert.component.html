@@ -1,3 +1,35 @@
-<p>
-    {{certificate}}
-</p>
+<div class="container">
+    
+    <table mat-table [dataSource]="sellerDataSource" class="mat-elevation-z8">
+        <!-- Key Column with seller information as display name-->
+        <ng-container matColumnDef="Key">
+            <th mat-header-cell *matHeaderCellDef> Seller Information </th>
+            <td mat-cell *matCellDef="let element"> {{element.key}} </td>
+        </ng-container>
+        <!-- Value volumn -->
+        <ng-container matColumnDef="Value">
+            <th mat-header-cell *matHeaderCellDef>  </th>
+            <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+    <table mat-table [dataSource]="issuerDataSource" class="mat-elevation-z8">
+        <!-- Key column with issuer information as display name-->
+        <ng-container matColumnDef="Key">
+            <th mat-header-cell *matHeaderCellDef> Issuer Information </th>
+            <td mat-cell *matCellDef="let element"> {{element.key}} </td>
+        </ng-container>        
+        <!-- Value volumn -->
+        <ng-container matColumnDef="Value">
+            <th mat-header-cell *matHeaderCellDef>  </th>
+            <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
