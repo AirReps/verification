@@ -7,15 +7,7 @@
             <mat-card-subtitle>If a trusted certificate has been issued for the requested seller, their details will be displayed beneath.</mat-card-subtitle>
         </mat-card-header>
         
-        <mat-card-subtitle class="status" [ngStyle]="{'color': getColour()}">{{ verificationStatus }}</mat-card-subtitle>
-        
         <app-decode-cert [certificate]='apiResponse'></app-decode-cert>
-
-        <mat-card-content>
-            <p>
-                Sellers can only be verified by supplying quality goods to members of the community, and only then obtaining a signed TLS certificate from AirReps.
-            </p>
-        </mat-card-content>
 
         <!-- <mat-card-actions>
             <button (click)="returnToReferrer" mat-raised-button color=primary>

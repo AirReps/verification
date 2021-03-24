@@ -1,3 +1,5 @@
+<mat-card-subtitle class="status" [ngStyle]="{'color': getColour()}">{{ verificationStatus }}</mat-card-subtitle>
+
 <div class="container" [ngStyle]="{'display': getHidden()}">
     
     <table mat-table [dataSource]="sellerDataSource" class="mat-elevation-z8">
@@ -6,7 +8,7 @@
             <th mat-header-cell *matHeaderCellDef> Seller Information </th>
             <td mat-cell *matCellDef="let element"> {{element.key}} </td>
         </ng-container>
-        <!-- Value volumn -->
+        <!-- Value column -->
         <ng-container matColumnDef="Value">
             <th mat-header-cell *matHeaderCellDef>  </th>
             <td mat-cell *matCellDef="let element"> {{element.value}} </td>
@@ -22,7 +24,7 @@
             <th mat-header-cell *matHeaderCellDef> Issuer Information </th>
             <td mat-cell *matCellDef="let element"> {{element.key}} </td>
         </ng-container>        
-        <!-- Value volumn -->
+        <!-- Value column -->
         <ng-container matColumnDef="Value">
             <th mat-header-cell *matHeaderCellDef>  </th>
             <td mat-cell *matCellDef="let element"> {{element.value}} </td>
@@ -33,8 +35,16 @@
     </table>
 
 </div>
+
 <div class="container" [ngStyle]="{'display': getHidden(true)}">
     <div class="no-data">
-        <p>No search data provided</p>
+        <mat-card-content>
+            <div>
+                Sellers can only be verified by continually supplying quality goods to members of the community.
+            </div>
+            <div>
+                Only then can they request to obtain a signed TLS certificate from AirReps.
+            </div>
+        </mat-card-content>
     </div>
 </div>

@@ -1,6 +1,5 @@
 # Verification
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+This is a PWA (progressive web app) which decodes verified seller certificates.
 
 # Local Development
 1. After cloning the repository, install project dependencies:
@@ -17,5 +16,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     ```
 
 ## Build
+Run `npm run build` to build the project. The build artifacts will be stored in the `docs/` directory.
 
-Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Deployment
+Run `npm run build` and then `git push` to the repository. Our github page is populated from the `docs/` directory.
