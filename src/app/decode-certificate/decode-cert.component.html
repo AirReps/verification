@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [ngStyle]="{'display': getHidden()}">
     
     <table mat-table [dataSource]="sellerDataSource" class="mat-elevation-z8">
         <!-- Key Column with seller information as display name-->
@@ -32,4 +32,9 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
+</div>
+<div class="container" [ngStyle]="{'display': getHidden(true)}">
+    <div class="no-data">
+        <p>No search data provided</p>
+    </div>
 </div>

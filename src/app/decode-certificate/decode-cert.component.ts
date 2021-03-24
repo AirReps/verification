@@ -50,4 +50,11 @@ export class DecodeCertComponent implements OnInit {
     return input.slice(0,1).toUpperCase() + fixed.replace(/([A-Z])/g, " $1").slice(1);
   }
 
+  getHidden(opposite?: Boolean) {
+    if (opposite) {
+      return this.certificate ? 'none' : '';  
+    }
+    return this.certificate ? '' : 'none';  
+  }
+
 }
