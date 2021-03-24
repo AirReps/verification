@@ -1,9 +1,7 @@
-import { DOCUMENT } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/services/api.service';
-// import * as filter from 'rxjs/operators/filter';
 
 @Component({
   selector: 'app-certificate-display',

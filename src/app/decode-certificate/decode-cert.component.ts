@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import * as forge from 'node-forge';
 
@@ -15,7 +15,7 @@ let ISSUER_ELEMENT_DATA: TableElement[] = []
   templateUrl: './decode-cert.component.html',
   styleUrls: ['./decode-cert.component.scss']
 })
-export class DecodeCertComponent implements OnInit, AfterViewChecked {
+export class DecodeCertComponent implements OnInit {
 
   @Input() certificate;
 
@@ -30,10 +30,6 @@ export class DecodeCertComponent implements OnInit, AfterViewChecked {
     this.decodeCert(cert)
   }
   
-  ngAfterViewChecked(): void {
-  }
-  
-  // todo - extrapolate cert and create web template to view
   decodeCert(cert: forge.pki.Certificate) {
     let seller = [];
     let issuer = [];
