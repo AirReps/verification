@@ -23,12 +23,12 @@ export class CertificateDisplayComponent implements OnInit {
   }
 
   queryApi(queryParameters: Object) {
-    // this.apiService.getCertificate(queryParameters).subscribe((result) => {
-    //   this.apiResponse = result;
-    // });
+    this.apiService.getCertificate(queryParameters).subscribe((result) => {
+      this.apiResponse = result;
+    });
     
     // @todo - remove this assignment - only used for dev until API exists
-    this.apiResponse = this.apiService.certificate;
+    // this.apiResponse = this.apiService.certificate;
   }
 
   returnToReferrer() {
