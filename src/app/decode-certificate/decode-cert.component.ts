@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import * as forge from 'node-forge';
+import { Observable } from 'rxjs';
 
 
 export interface TableElement {
@@ -19,7 +20,7 @@ export interface ColourElement {
   templateUrl: './decode-cert.component.html',
   styleUrls: ['./decode-cert.component.scss']
 })
-export class DecodeCertComponent implements OnInit {
+export class DecodeCertComponent implements OnInit, OnChanges {
 
   private static VERIFIED: string = 'VERIFIED SELLER';
   private static NOT_VERIFIED: string = 'UNVERIFIED SELLER';
@@ -70,7 +71,7 @@ export class DecodeCertComponent implements OnInit {
     this.setStatus(verifiedResult);
   }
 
-  breakCamelCase(input: String) {
+  breakCamelCase(input: string) {
     const fixed = input;
     return input.slice(0,1).toUpperCase() + fixed.replace(/([A-Z])/g, " $1").slice(1);
   }
@@ -85,7 +86,7 @@ export class DecodeCertComponent implements OnInit {
     }
   }
 
-  getHidden(opposite?: Boolean) {
+  getHidden(opposite?: boolean) {
     if (opposite) {
       return this.certificate ? 'none' : '';  
     }
@@ -97,12 +98,14 @@ export class DecodeCertComponent implements OnInit {
   }
 
   ngOnInit(): void { 
-    if (this.certificate) {
+    this.verificationStatus = DecodeCertComponent.NOT_VERIFIED;
+    this.result = false;
+  }
+
+  ngOnChanges(changes): void {
+    if(changes['certificate'] && this.certificate) {
       const cert = forge.pki.certificateFromPem(this.certificate);
       this.decodeCert(cert);
-    } else {
-      this.verificationStatus = DecodeCertComponent.NOT_VERIFIED;
-      this.result = false;
     }
   }
 

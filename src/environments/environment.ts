@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiSlug: "https://cors-anywhere.herokuapp.com/https://api.airreps.info",
+  apiSlug: "http://localhost:49521",
   endpoint: "/certificates"
 };
