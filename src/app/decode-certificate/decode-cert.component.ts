@@ -22,8 +22,8 @@ export interface ColourElement {
 })
 export class DecodeCertComponent implements OnInit, OnChanges {
 
-  private static VERIFIED: string = 'VERIFIED SELLER';
-  private static NOT_VERIFIED: string = 'UNVERIFIED SELLER';
+  private static VERIFIED: string = 'VERIFIED';
+  private static NOT_VERIFIED: string = 'UNVERIFIED SELLER OR PRODUCT';
 
   @Input() certificate;
 

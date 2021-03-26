@@ -8,6 +8,7 @@
     "strict": false,
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,

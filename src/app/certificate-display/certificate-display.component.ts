@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { version } from '../../../package.json';
 
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/services/api.service';
@@ -10,6 +11,8 @@ import { ApiService } from 'src/services/api.service';
 })
 export class CertificateDisplayComponent implements OnInit {
 
+  private BUILD: string = 'Version ';
+  public buildNumber: string = '';
   public apiResponse: string = '';
 
   constructor(
@@ -17,9 +20,14 @@ export class CertificateDisplayComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.buildVersion();
     this.route.queryParams.subscribe((params) => {
       this.queryApi(params);
     })
+  }
+
+  buildVersion() {
+    return this.buildNumber = this.BUILD + version
   }
 
   queryApi(queryParameters: Object) {
