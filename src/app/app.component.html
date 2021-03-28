@@ -1,3 +1,19 @@
+<mat-toolbar color="primary">
+    <!-- <span>My App</span> -->
+    <button mat-button class="title">
+        Join us on
+    </button>
+    <ng-container *ngFor="let link of links">
+        <a mat-button href="{{link.url}}" target="_blank">
+            {{link.text}}
+        </a>
+    </ng-container>
+    <div class="flex-spacer"></div>
+    <a mat-button class="help" href="{{help.url}}" target="_blank">
+        {{help.text}}
+    </a>
+</mat-toolbar>
+
 <div class="wrapper">
     <router-outlet></router-outlet>
 </div>

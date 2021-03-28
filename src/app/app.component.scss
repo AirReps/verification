@@ -1,6 +1,24 @@
 * {
+
     .wrapper {
         display: flex;
         justify-content: center;
     }
+
+    .title {
+        cursor: default;
+        
+        button {
+            outline: none;
+          }
+          
+          ::ng-deep .mat-button-focus-overlay {
+            display: none;
+          }
+    }
+
+    .flex-spacer {
+      flex-grow: 1;
+  }
+
 }
