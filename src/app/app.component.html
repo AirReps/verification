@@ -1,18 +1,40 @@
-<mat-toolbar color="primary">
-    <!-- <span>My App</span> -->
-    <button mat-button class="title">
-        Join us on
-    </button>
-    <ng-container *ngFor="let link of links">
-        <a mat-button href="{{link.url}}" target="_blank">
-            {{link.text}}
+<div fxShow="true" fxHide.lt-md="true">
+    <mat-toolbar color="primary">
+        <button mat-button class="title">
+            Join us on
+        </button>
+        <ng-container *ngFor="let link of links">
+            <a mat-button href="{{link.url}}" target="_blank">
+                {{link.text}}
+            </a>
+        </ng-container>
+        <div class="flex-spacer"></div>
+        <a mat-button class="help" href="{{help.url}}" target="_blank">
+            {{help.text}}
         </a>
-    </ng-container>
-    <div class="flex-spacer"></div>
-    <a mat-button class="help" href="{{help.url}}" target="_blank">
-        {{help.text}}
-    </a>
-</mat-toolbar>
+    </mat-toolbar>
+</div>
+
+<!-- Toolbar for small screens -->
+<div fxShow="true" >
+    <mat-toolbar color="primary" fxHide.gt-sm="true">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <ng-container *ngFor="let link of links">
+                <a button mat-menu-item href="{{link.url}}" target="_blank">
+                    {{link.text}}
+                </a>
+            </ng-container>
+        </mat-menu>
+        <div class="flex-spacer"></div>
+        <a mat-button class="help" href="{{help.url}}" target="_blank">
+            {{help.text}}
+        </a>
+    </mat-toolbar>
+</div>
+    
 
 <div class="wrapper">
     <router-outlet></router-outlet>

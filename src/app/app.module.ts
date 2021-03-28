@@ -9,10 +9,14 @@ import { CertificateDisplayComponent } from './certificate-display/certificate-d
 import { DecodeCertComponent } from './decode-certificate/decode-cert.component';
 
 // Material imports
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +25,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     DecodeCertComponent
   ],
   imports: [
+    FlexLayoutModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -28,7 +33,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatButtonModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
